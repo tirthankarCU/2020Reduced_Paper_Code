@@ -1,0 +1,65 @@
+,visual,word,frequency
+0,1,one,1
+1,2,two,1
+2,3,three,1
+3,4,four,1
+4,5,five,1
+5,6,six,1
+6,7,seven,1
+7,8,eight,1
+8,9,nine,1
+9,14,fourteen,1
+10,15,fifteen,1
+11,16,sixteen,1
+12,19,nineteen,1
+13,21,twenty one,1
+14,24,twenty four,1
+15,30,thirty,1
+16,40,forty,1
+17,60,sixty,1
+18,70,seventy,1
+19,80,eighty,1
+20,105,one hundred five,1
+21,121,one hundred twenty one,1
+22,124,one hundred twenty four,1
+23,125,one hundred twenty five,1
+24,135,one hundred thirty five,1
+25,145,one hundred forty five,1
+26,205,two hundred five,1
+27,221,two hundred twenty one,1
+28,223,two hundred twenty three,1
+29,224,two hundred twenty four,1
+30,225,two hundred twenty five,1
+31,250,two hundred fifty,1
+32,260,two hundred sixty,1
+33,261,two hundred sixty one,1
+34,262,two hundred sixty two,1
+35,305,three hundred five,1
+36,321,three hundred twenty one,1
+37,324,three hundred twenty four,1
+38,350,three hundred fifty,1
+39,402,four hundred two,1
+40,405,four hundred five,1
+41,421,four hundred twenty one,1
+42,450,four hundred fifty,1
+43,470,four hundred seventy,1
+44,502,five hundred two,1
+45,515,five hundred fifteen,1
+46,521,five hundred twenty one,1
+47,525,five hundred twenty five,1
+48,535,five hundred thirty five,1
+49,570,five hundred seventy,1
+50,602,six hundred two,1
+51,670,six hundred seventy,1
+52,1000,one thousand,1
+53,1002,one thousand two,1
+54,2000,two thousand,1
+55,2002,two thousand two,1
+56,2520,two thousand five hundred twenty,1
+57,2620,two thousand six hundred twenty,1
+58,3000,three thousand,1
+59,3002,three thousand two,1
+60,3520,three thousand five hundred twenty,1
+61,3620,three thousand six hundred twenty,1
+62,4520,four thousand five hundred twenty,1
+63,4620,four thousand six hundred twenty,1

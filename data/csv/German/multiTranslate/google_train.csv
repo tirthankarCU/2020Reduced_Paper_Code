@@ -1,0 +1,65 @@
+,visual,word,frequency
+0,1,eins,1
+1,2,zwei,1
+2,3,drei,1
+3,4,vier,1
+4,5,fünf,1
+5,6,sechs,1
+6,7,Sieben,1
+7,8,acht,1
+8,9,neun,1
+9,14,vierzehn,1
+10,15,fünfzehn,1
+11,16,sechzehn,1
+12,19,neunzehn,1
+13,21,einundzwanzig,1
+14,24,vierundzwanzig,1
+15,30,dreißig,1
+16,40,vierzig,1
+17,60,sechzig,1
+18,70,siebzig,1
+19,80,achtzig,1
+20,105,Einhundertfünf,1
+21,121,einhunderteinundzwanzig,1
+22,124,einhundertvierundzwanzig,1
+23,125,Einhundertfünfundzwanzig,1
+24,135,einhundertfünfunddreißig,1
+25,145,einhundertundvierzig fünf Uhr,1
+26,205,zweihundert fünf,1
+27,221,zweihundertundzwanzig eins,1
+28,223,zweihundertdreiundzwanzig,1
+29,224,zweihundertundzwanzig vier Uhr,1
+30,225,zweihundert fünfundzwanzig,1
+31,250,zweihundertfünfzig,1
+32,260,zweihundert sechzig,1
+33,261,zweihundert einundsechzig,1
+34,262,Zweihundert zweiundsechzig,1
+35,305,dreihundert fünf,1
+36,321,Dreihundert zwanzig eins,1
+37,324,Dreihundertvierundzwanzig,1
+38,350,dreihundertfünfzig,1
+39,402,vierhundert zwei,1
+40,405,vierhundert fünf,1
+41,421,Vierhundert zwanzig eins,1
+42,450,vierhundertfünfzig,1
+43,470,vierhundert siebzig,1
+44,502,fünfhundert zwei,1
+45,515,Fünf hundert fünfzehn,1
+46,521,fünfhundert zwanzig eins,1
+47,525,fünfhundertfünfundzwanzig,1
+48,535,fünfhundert fünfunddreißig,1
+49,570,Fünfhundert siebzig,1
+50,602,sechshundert zwei,1
+51,670,sechshundert siebzig,1
+52,1000,eintausend,1
+53,1002,Eintausend zwei,1
+54,2000,zweitausend,1
+55,2002,zweitausend und zwei,1
+56,2520,zweitausend fünfhundert zwanzig,1
+57,2620,zweitausend sechhhundert zwanzig,1
+58,3000,dreitausend,1
+59,3002,dreitausend zwei,1
+60,3520,dreitausend fünfhundert zwanzig,1
+61,3620,dreitausend sechhhundert zwanzig,1
+62,4520,viertausend fünfhundert zwanzig,1
+63,4620,viertausend sechshundert zwanzig,1
