@@ -27,9 +27,10 @@ def create_coco_struct(gt_data, image_id, sentence_id, imgs, f_path, split):
         image_id += 1
     return imgs, image_id, sentence_id
 
-def create_caption_labels(train, val, out):    
+def create_caption_labels(train, val, test, out):    
     gt_train = json.load(open(train, 'r'))
     gt_val = json.load(open(val, 'r'))
+    gt_test = json.load(open(test, 'r'))
     # Initialize imgid, senid and list of img_captions
     sentence_id, image_id = 0, 0
     imgs = []
@@ -41,6 +42,10 @@ def create_caption_labels(train, val, out):
     val_path = val[:val.rfind('/')]
     imgs, img_id, sentence_id = create_coco_struct(gt_val, image_id, sentence_id, imgs, val_path, 'val')
     print("Number after val samples: {}".format(len(imgs)))
+    # Testing set load
+    test_path = test[:test.rfind('/')]
+    imgs, img_id, sentence_id = create_coco_struct(gt_test, image_id, sentence_id, imgs, test_path, 'test')
+    print("Number after testing samples: {}".format(len(imgs)))
     # Aggregate everything into one .json file
     caption_out = {'images' : imgs, 'dataset' : 'Number'}
     f_out = open(out, 'w+')
@@ -50,6 +55,7 @@ def create_caption_labels(train, val, out):
 parser = argparse.ArgumentParser(description='Process command line optional inputs')
 parser.add_argument('--train_gt', '-tr', help="Gt path to training set.")
 parser.add_argument('--val_gt', '-vl', help="Gt path to validation set(kids gt) .")
+parser.add_argument('--test_gt', '-te', help="Gt path to testing set.")
 parser.add_argument('-out',  '-o',help="Caption label json file.")
 args = parser.parse_args()
-create_caption_labels(args.train_gt, args.val_gt, args.out)
+create_caption_labels(args.train_gt, args.val_gt, args.test_gt, args.out)

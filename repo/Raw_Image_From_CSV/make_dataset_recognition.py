@@ -3,7 +3,7 @@ import argparse
 import numpy as np
 import csv, json
 import cv2
-
+import re
 """
 This script is used to create dataset for number recognition task. This can be used for test csv files
 Command line input:
@@ -49,6 +49,7 @@ def correctString(s):
     for k,v in sp_ch.items():
         s=s.replace(k,v)
     return s.lower()
+    
 # Generate images and text labels using loaded insturction
 def generate_dataset(dataset_instr, out_dir):
     # Desired size of imgs in the dataset, all images will be reshaped to this
@@ -57,8 +58,9 @@ def generate_dataset(dataset_instr, out_dir):
     w, h = 224, 224
     for i in range(len(dataset_instr)):
         num, label = dataset_instr[i][0], correctString(dataset_instr[i][1])
-        if label not in unique:
-            unique[label]=True
+        for l in label.split():
+            if l not in unique:
+                unique[l]=True
         # Font type, scale to its original size and thickness
         font, font_scale, thickness = cv2.FONT_HERSHEY_SIMPLEX, 2, 2
         # txt_w - txt_size[0], txt_h - txt_size[1]
@@ -82,7 +84,7 @@ def generate_dataset(dataset_instr, out_dir):
     with open(os.path.join(out_dir, 'num_labels.json'), 'w+') as fp:
         json.dump(data_dict, fp)
         fp.close()
-    with open(os.path.join(out_dir, 'unique.json'), 'w+') as fp:
+    with open(os.path.join(out_dir, 'unique.txt'), 'w+') as fp:
         fp.write(data_dump)
         fp.close()
     return data_dict

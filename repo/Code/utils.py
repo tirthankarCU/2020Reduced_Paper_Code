@@ -17,20 +17,21 @@ from random import seed, choice, sample
 def createWordMap(lang):
     # All the number words should be included even if they are not in training set
     if lang=='English':
-        words = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight',
-        'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen',
-        'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen',
-        'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy',
-        'eighty', 'ninety', 'hundred', 'thousand']    
+        words = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'fourteen', 'fifteen', 'sixteen', 'nineteen', 'twenty', 'thirty', 'forty', 'sixty', 'seventy', 'eighty', 'hundred', 'fifty', 'thousand']   
     elif lang=='Turkish':
-        words=['bir', 'iki', 'üç', 'dört', 'beş', 'altı', 'yedi', 'sekiz', 'dokuz', 'on dört', 'on beş', 'on altı', 'on dokuz', 'yirmi bir', 'yirmi dört', 'otuz', 'kırk', 'altmış', 'yetmiş', 'seksen', 'yüz beş', 'yüz yirmi bir', 'yüz yirmi dört', 'yüz yirmi beş', 'yüz otuz beş', 'yüz kırk beş', 'i̇ki yüz beş', 'i̇ki yüz yirmi bir', 'iki yüz yirmi üç', 'i̇ki yüz yirmi dört', 'iki yüz yirmi beş', 'iki yüz elli', 'iki yüz altmış', 'i̇ki yüz altmış bir', 'i̇ki yüz altmış iki', 'üç yüz beş', 'üç yüz yirmi bir', 'üç yüz yirmi dört', 'üç yüz elli', 'dört yüz iki', 'dört yüz beş', 'dört yüz yirmi bir', 'dört yüz elli', 'dört yüz yetmiş', 'beş yüz iki', 'beşyüz onbeş', 'beş yüz yirmi bir', 'beş yüz yirmi beş', 'beş yüz otuz beş', 'beş yüz yetmiş', 'altı yüz iki', 'altı yüz yetmiş', 'bin', 'bin i̇ki', 'iki bin', 'iki bin iki', 'i̇ki bin beş yüz yirmi', 'i̇ki bin altı yüz yirmi', 'üç bin', 'üç bin i̇ki', 'üç bin beş yüz yirmi', 'üç bin altı yüz yirmi', 'dört bin beş yüz yirmi', 'dört bin altı yüz yirmi'] 
+        words=['bir', 'iki', 'üç', 'dört', 'beş', 'altı', 'yedi', 'sekiz', 'dokuz', 'on', 'yirmi', 'otuz', 'kırk', 'altmış', 'yetmiş', 'seksen', 'yüz', 'i̇ki', 'elli', 'beşyüz', 'onbeş', 'bin']
     elif lang=='Chinese':
-        words = ['一', '二', '三', '四个', '五', '六', '七', '八', '九', '十四', '十五', '十六', '十九', '二一', '二四个', '三十', '四十', '六十', '七十', '八十', '一百五', '一百二十一', '一百二十四', '一百二十五', '一百三十五', '一百四十五', '两百五', '两百二十一', '两百二十三', '两百二十四', '两百二五', '两百五十', '两百六十', '两百六十一', '两百六十二', '三百五', '三百二十一', '三百二十四', '三百五十', '四个两个', '四百五', '四百二十一', '四百五十', '四百七十', '五百两个', '五百五百', '五百二十一', '五百二十五', '五百三十五', '五百七十', '六百个', '六百七十', '一千', '两千', '两千两个', '两千二十二十', '三千', '三千两个', '三千五百二十', '三千六百二十', '四千五十二十', '四千六十二十']  
+        words = ['yi', 'er', 'san', 'si', 'wu', 'liu', 'qi', 'ba', 'jiu', 'shi', 'bai', 'ling', 'qian', 'liang']
+    elif lang=='French':
+        words = ['un', 'deux', 'trois', 'quatre', 'cinq', 'six', 'sept', 'huit', 'neuf', 'quatorze', 'quinze', 'seize', 'dix', 'vingt', 'et', 'trente', 'quarante', 'soixante', 'vingts', 'cent', 'cinquante', 'mille']
+        
     word_map={k: v + 1 for v, k in enumerate(words)}
     word_map['<unk>'] = len(word_map) + 1
     word_map['<start>'] = len(word_map) + 1
     word_map['<end>'] = len(word_map) + 1
     word_map['<pad>'] = 0
+    return word_map
+    
 def create_input_files(dataset, karpathy_json_path, image_folder, captions_per_image, min_word_freq, output_folder,
                        lang,max_len=100):
     """
@@ -59,7 +60,7 @@ def create_input_files(dataset, karpathy_json_path, image_folder, captions_per_i
     test_image_paths = []
     test_image_captions = []
     word_freq = Counter()
-
+    #fdbg=open('logs.txt','a')
     for img in data['images']:
         captions = []
         for c in img['sentences']:
@@ -142,7 +143,6 @@ def create_input_files(dataset, karpathy_json_path, image_folder, captions_per_i
                 images[i] = img
 
                 for j, c in enumerate(captions):
-                    print(c)
                     # Encode captions
                     enc_c = [word_map['<start>']] + [word_map.get(word, word_map['<unk>']) for word in c] + [
                         word_map['<end>']] + [word_map['<pad>']] * (max_len - len(c))
@@ -162,6 +162,7 @@ def create_input_files(dataset, karpathy_json_path, image_folder, captions_per_i
 
             with open(os.path.join(output_folder, split + '_CAPLENS_' + base_filename + '.json'), 'w') as j:
                 json.dump(caplens, j)
+    #fdbg.close()
 
 def init_embedding(embeddings):
     """
